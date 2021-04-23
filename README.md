@@ -20,6 +20,14 @@ sequelize model:create --name Plan --attributes validity:string,cost:decimal
 sequelize model:create --name Subscription --attributes plan_id:string,validity:string,cost:decimal
 ```
 
+
+### Seeding Plans
+
+```python
+sequelize db:seed --seed seeders/20210423182753-Plan
+```
+
+
 #### Model Relationship
 ![image](https://user-images.githubusercontent.com/30143637/115913143-d5d85280-a48d-11eb-9225-394ebdb8e5a8.png)
 
