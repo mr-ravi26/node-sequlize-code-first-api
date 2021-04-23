@@ -1,0 +1,32 @@
+{
+  "name": "node-sequlize-code-first-api",
+  "version": "1.0.0",
+  "description": "Node, Express, Postgres, Sequelize, Code First approched REST API",
+  "main": "app.js",
+  "scripts": {
+    "start:dev": "nodemon ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mr-ravi26/node-sequlize-code-first-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mr-ravi26/node-sequlize-code-first-api/issues"
+  },
+  "homepage": "https://github.com/mr-ravi26/node-sequlize-code-first-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
