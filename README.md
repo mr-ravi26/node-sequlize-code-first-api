@@ -58,6 +58,61 @@ sequelize db:seed --seed seeders/20210423182753-Plan
 ![image](https://user-images.githubusercontent.com/30143637/115961668-0c1cdd00-a535-11eb-955a-396e13443e86.png)
 
 #### Get Users Subscription on date
+![image](https://user-images.githubusercontent.com/30143637/115968614-61b5b180-a556-11eb-8cd6-de42fb875afc.png)
+
+
+The most challenging part with Sequelize
+
+```javascript
+let checkForDate = moment(req.params.start_date).format("YYYY-MM-DD HH:MM:SS");
+        console.log("checkForDate", checkForDate);
+
+        const dateQuery = `DATE_PART('day', '${checkForDate}' - "subscriptions"."start_date")`
+
+        return User
+            .findAll({
+                where: {
+                    id: req.params.user_id,
+                },
+                attributes: ['id', 'name'],
+                include: [
+                    {
+                        model: Subscription,
+                        as: 'subscriptions',
+                        attributes: [
+                            'start_date', 'days_left', 'valid_till'
+                        ],
+                        include: [
+                            {
+                                model: Plan,
+                                as: 'plan',
+                                attributes: ['code', 'validity', 'cost'],
+                                where: {
+                                    [Op.or]: [
+                                        sequelize.where(
+                                            sequelize.cast(sequelize.col('validity'), 'integer'),
+                                            {
+                                                [Op.or]: [
+                                                    {
+                                                        [Op.gte]: sequelize.literal(dateQuery)
+                                                    },
+                                                    { [Op.eq]: -1 }
+                                                ]
+                                            }
+                                        )
+                                    ],
+                                }
+                            }
+                        ]
+                    }
+                ]
+            })
+            .then(users => res.status(200).send(users))
+            .catch(error => {
+                console.error("User subscription load error", error)
+                res.status(400).send(error)
+            });
+```
 
 
 
