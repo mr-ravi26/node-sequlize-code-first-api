@@ -87,14 +87,84 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://localhost:8000/user",
+                    "raw": "http://localhost:8000/user/2",
                     "protocol": "http",
                     "host": [
                         "localhost"
                     ],
                     "port": "8000",
                     "path": [
-                        "user"
+                        "user",
+                        "2"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Create Subscription",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"plan_id\": 6,\r\n    \"user_id\": 1,\r\n    \"start_date\": \"2021 04 15\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/subscription",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "subscription"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Users Subscriptions",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/subscription/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "subscription",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Users Subscriptions on Date",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/subscription/1/2021-04-24",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "subscription",
+                        "1",
+                        "2021-04-24"
                     ]
                 }
             },
