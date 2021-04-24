@@ -29,12 +29,13 @@ sequelize db:seed --seed seeders/20210423182753-Plan
 
 
 #### Model Relationship
-![image](https://user-images.githubusercontent.com/30143637/115913143-d5d85280-a48d-11eb-9225-394ebdb8e5a8.png)
+![image](https://user-images.githubusercontent.com/30143637/115961640-ec85b480-a534-11eb-81db-43f0e039dc5f.png)
 
 
 
 ## Postman Samples
 
+### Users
 #### Get Users List
 ![image](https://user-images.githubusercontent.com/30143637/115951516-c2b19b00-a4fe-11eb-9fa8-f5480ca668a0.png)
 
@@ -46,6 +47,18 @@ sequelize db:seed --seed seeders/20210423182753-Plan
 
 #### Get User Detail
 ![image](https://user-images.githubusercontent.com/30143637/115951551-fa204780-a4fe-11eb-9bde-f60d5e24916c.png)
+
+
+
+### Subscription
+#### Get Users Subscription
+![image](https://user-images.githubusercontent.com/30143637/115961701-3373aa00-a535-11eb-9d94-b9e7a7432e59.png)
+
+#### Create Subscription
+![image](https://user-images.githubusercontent.com/30143637/115961668-0c1cdd00-a535-11eb-955a-396e13443e86.png)
+
+#### Get Users Subscription on date
+
 
 
 
