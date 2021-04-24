@@ -25,8 +25,14 @@ module.exports = (sequelize, DataTypes) => {
 
   Plan.init({
     code: DataTypes.STRING,
-    validity: DataTypes.STRING,
-    cost: DataTypes.DECIMAL
+    cost: DataTypes.DECIMAL,
+    // validity: DataTypes.STRING,
+    validity: {
+      type: DataTypes.STRING,
+      get() {
+        return this.getDataValue('validity') === "-1" ? "INFINITE" : this.getDataValue('validity');
+      }
+    },
   }, {
     sequelize,
     modelName: 'Plan',

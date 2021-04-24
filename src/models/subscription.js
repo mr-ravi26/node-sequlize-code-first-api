@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     days_left: {
 
       type: DataTypes.VIRTUAL,
+
       get() {
         let plan = this.getDataValue('plan') && this.getDataValue('plan').dataValues
         if (!plan) return null;
@@ -48,11 +49,16 @@ module.exports = (sequelize, DataTypes) => {
 
         let validity = moment(startedDate).add(planValidity, 'days')
 
-        return validity.diff(new Date(), 'days') + 1
+        let days_left = validity.diff(new Date(), 'days') + 1
+
+        return days_left >= 0 ? days_left : 0
       }
+
     },
     valid_till: {
+
       type: DataTypes.VIRTUAL,
+
       get() {
         let plan = this.getDataValue('plan') && this.getDataValue('plan').dataValues
         if (!plan) return null;
@@ -65,10 +71,12 @@ module.exports = (sequelize, DataTypes) => {
         if (!startedDate) return "INFINITE"
         return moment(startedDate).add(planValidity, 'days').format("YYYY-MM-DD");
       }
+
     }
   }, {
     sequelize,
     modelName: 'Subscription',
   });
+
   return Subscription;
 };

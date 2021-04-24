@@ -16,7 +16,7 @@ module.exports = {
       {
         id: 1,
         code: 'FREE',
-        validity: 'INFINITE',
+        validity: '-1',
         cost: 0.00,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
