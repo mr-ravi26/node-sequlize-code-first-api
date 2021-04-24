@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
         if (!plan) return null;
 
         let planValidity = plan.validity;
-        if (planValidity === 'INFINITE') return "INFINITE"
+        if (planValidity === '-1') return "INFINITE"
 
         let startedDate = this.getDataValue('start_date')
 
