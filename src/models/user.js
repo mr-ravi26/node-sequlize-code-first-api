@@ -12,18 +12,20 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
 
-      User.belongsToMany(Plan, {
+      User.belongsToMany(models.Plan, {
         through: "subscription",
         as: "plans",
         foreignKey: "plan_id",
       });
     }
   };
+
   User.init({
     name: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',
   });
+
   return User;
 };

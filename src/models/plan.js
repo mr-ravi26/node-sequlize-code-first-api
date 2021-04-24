@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Plan extends Model {
     /**
@@ -12,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
 
-      Plan.belongsToMany(User, {
+      Plan.belongsToMany(models.User, {
         through: "subscription",
         as: "users",
         foreignKey: "user_id",
@@ -22,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   Plan.init({
+    code: DataTypes.STRING,
     validity: DataTypes.STRING,
     cost: DataTypes.DECIMAL
   }, {
