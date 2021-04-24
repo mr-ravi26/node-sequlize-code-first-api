@@ -14,7 +14,9 @@ module.exports = {
             /// So chaining a promise to send updated User record
             .then(() => { return User.findByPk(req.params.id) })
             .then(updatedRecords => res.status(200).send(updatedRecords))
-            .catch(error => res.status(400).send(error));
+            .catch(error => {
+                res.status(400).send(error)
+            });
     },
     create(req, res) {
         return User
